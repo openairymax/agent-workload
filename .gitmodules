@@ -1,0 +1,16 @@
+[submodule "agentrt"]
+	path = agentrt
+	url = ../agentrt.git
+	branch = main
+[submodule "ecosystem"]
+	path = ecosystem
+	url = ../ecosystem.git
+	branch = main
+[submodule "products"]
+	path = products
+	url = ../products.git
+	branch = main
+[submodule "sdk"]
+	path = sdk
+	url = ../sdk.git
+	branch = main

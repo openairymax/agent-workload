@@ -11,18 +11,8 @@
 # ---------------------------------------------------------------------------
 !.gitignore
 !.gitmodules
-!.gitattributes
-!.github/
-!.github/**
 !README.md
 !README_zh.md
 !LICENSE
 !NOTICE
 !ACKNOWLEDGMENTS.md
-!CHANGELOG.md
-!CONTRIBUTING.md
-!SECURITY.md
-!SUPPORT.md
-!REPOSITORIES.md
-!docs/
-!docs/**

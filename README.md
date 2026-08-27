@@ -1,35 +1,32 @@
-# AirymaxRT 用户态工程（agent-workload）
+# AirymaxRT User-Space Engineering (agent-workload)
 
-> **定位**：Airymax 双工程结构中的**用户态工程**大管理仓（v0.1.4 由
-> agent-runtim 改名）。与之对应的**内核态工程**为 [agent-linux]
-> （AirymaxOS，Linux 6.6 + sched_tac + eBPF + io_uring + Rust）。两者构建
-> 层面零互相引用，通过共享契约层（SC）与语义同源层（SS）协作（IRON-9
-> 四层共享模型）。
+> **Role**: The **user-space engineering** super-repo within the Airymax dual-engineering structure (renamed from agent-runtim in v0.1.4). Its kernel-space counterpart is [agent-linux](https://atomgit.com/openairymax/agent-linux) (AirymaxOS, Linux 6.6 + sched_tac + eBPF + io_uring + Rust). The two repos have zero build-time cross-references and collaborate through the Shared Contract layer (SC) and Semantic Source layer (SS) per the IRON-9 four-tier sharing model.
 
-## 结构
+**Language:** English | [简体中文](README_zh.md)
+
+**Version:** 0.1.5
+
+## Structure
 
 ```
-agent-workload/                     ← 用户态工程（大管理仓，v0.1.3 起，v0.1.4 由 agent-runtim 改名）
-├── agentrt/      [管理仓]           # 核心运行时：daemon 群 + CMake 构建系统
-│                                   #   （含直属 cmake/ 构建模块、scripts/ 安装器）
-├── ecosystem/    [管理仓]           # 生态：skills/plugins/prompts/openlab …
-├── products/     [管理仓]           # 产品：memoryrovol/desktop/docker …
-└── sdk/          [管理仓]           # 开发者 SDK：sdk-python/go/rust/ts + cli + tui
+agent-workload/                     ← User-space engineering super-repo (since v0.1.3, renamed from agent-runtim in v0.1.4)
+├── agentrt/      [management repo]  # Core runtime: daemon fleet + CMake build system
+│                                    #   (includes cmake/ build modules, scripts/ installers)
+├── ecosystem/    [management repo]  # Ecosystem: skills/plugins/prompts/openlab …
+├── products/     [management repo]  # Products: memoryrovol/desktop/docker …
+└── sdk/          [management repo]  # Developer SDK: sdk-python/go/rust/ts + cli + tui
 ```
 
-- 本仓为**容器性质**：根目录仅收编 4 个管理仓子模块指针 + 自身工程文档，
-  不含直属源码目录。
-- `agentrt/cmake/`（构建系统模块）、`agentrt/scripts/`（官方安装器
-  install.sh/install.ps1）、`agentrt/LICENSES/`（SPDX 许可）为 agentrt
-  管理仓直属设施，随仓入库。
+- This repo is **container-nature**: the root directory only holds 4 management-repo submodule pointers plus its own project documentation, with no first-party source code directories.
+- `agentrt/cmake/` (build system modules), `agentrt/scripts/` (official installers: install.sh / install.ps1), and `agentrt/LICENSES/` (SPDX licenses) are first-party facilities of the agentrt management repo and ship with it.
 
-## 工程边界
+## Engineering Boundary
 
-| 工程 | 大管理仓 | 内容 | 构建 |
-|------|----------|------|------|
-| 用户态 | agent-workload | agentrt + ecosystem + products + sdk | agentrt CMake 为运行时构建入口；ecosystem/products/sdk 服务化整合（安装期拷贝 + 运行时协议协作） |
-| 内核态 | agent-linux | kernel + services + system + cloudnative | Kbuild + SC 契约层 |
+| Engineering | Super-repo | Contents | Build |
+|-------------|-----------|----------|-------|
+| User-space | agent-workload | agentrt + ecosystem + products + sdk | agentrt CMake is the runtime build entry; ecosystem/products/sdk integrate via service-level composition (install-time copy + runtime protocol cooperation) |
+| Kernel-space | agent-linux | kernel + services + system + cloudnative | Kbuild + SC contract layer |
 
-## 子模块
+## Submodules
 
-`git submodule update --init --recursive` 拉取全部 4 个管理仓及其叶子仓。
+`git submodule update --init --recursive` fetches all 4 management repos and their leaf repos.

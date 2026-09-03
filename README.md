@@ -4,7 +4,7 @@
 
 **Language:** English | [简体中文](README_zh.md)
 
-**Version:** 0.1.7
+**Version:** 0.1.9
 
 ## Structure
 

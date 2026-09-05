@@ -2,7 +2,7 @@
 
 > Airymax 双工程结构中的**用户态工程**大管理仓\
 > 与之对应的**内核态工程**为 \[agent-linux]（AirymaxOS）\
-> 两者构建层面零互相引用，通过共享契约层（SC）与语义同源层（SS）协作（IRON-9四层共享模型）
+> 两者构建层面零互相引用，通过共享契约层（SC）与语义同源层（SS）协作（IRON-9四层共享模型）  
 
 **语言：** [English](README.md) | 简体中文
 
@@ -11,12 +11,12 @@
 ## 结构
 
 ```
-agent-workload/                     ← 用户态工程（大管理仓，v0.1.3 起，v0.1.4 由 agent-runtim 改名）
-├── agentrt/      [管理仓]           # 核心运行时：daemon 群 + CMake 构建系统
-│                                   #   （含直属 cmake/ 构建模块、scripts/ 安装器）
-├── ecosystem/    [管理仓]           # 生态：skills/plugins/prompts/markets/agents …
-├── products/     [管理仓]           # 产品：memoryrovol/desktop/docker …
-└── sdk/          [管理仓]           # 开发者 SDK：sdk-python/go/rust/ts + cli + tui
+agent-workload/               ← 用户态工程（大管理仓）
+├── agentrt/      [管理仓]     # 核心运行时
+│                             # （含直属 cmake/ 构建模块、scripts/ 安装器）
+├── ecosystem/    [管理仓]     # 生态
+├── products/     [管理仓]     # 产品
+└── sdk/          [管理仓]     # 开发者
 ```
 
 - 本仓为**容器性质**：根目录仅收编 4 个管理仓子模块指针 + 自身工程文档，

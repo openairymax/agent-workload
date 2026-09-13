@@ -34,13 +34,15 @@ as git submodules, pinned to the exact commits that were released together.
 Most users should install a prebuilt package rather than build from source:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/openairymax/agentrt/main/scripts/install.sh | bash
+curl -fsSL "https://api.atomgit.com/api/v5/repos/openairymax/agentrt/contents/scripts/install.sh?ref=main" \
+  | python3 -c 'import json,sys,base64;sys.stdout.buffer.write(base64.b64decode(json.load(sys.stdin)["content"]))' \
+  | bash
 ```
 
 On Windows (PowerShell):
 
 ```powershell
-irm https://atomgit.com/openairymax/agentrt/releases/download/v0.1.15/install.ps1 | iex
+irm https://atomgit.com/openairymax/agentrt/releases/download/latest/install.ps1 | iex
 ```
 
 See the [runtime README](agentrt/README.md) for the full platform matrix,

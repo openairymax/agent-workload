@@ -30,13 +30,15 @@ AI 智能体，或把运行时嵌入自己的应用，从这里开始即可。
 多数用户应直接安装预构建包，无需自行编译：
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/openairymax/agentrt/main/scripts/install.sh | bash
+curl -fsSL "https://api.atomgit.com/api/v5/repos/openairymax/agentrt/contents/scripts/install.sh?ref=main" \
+  | python3 -c 'import json,sys,base64;sys.stdout.buffer.write(base64.b64decode(json.load(sys.stdin)["content"]))' \
+  | bash
 ```
 
 Windows（PowerShell）：
 
 ```powershell
-irm https://atomgit.com/openairymax/agentrt/releases/download/v0.1.15/install.ps1 | iex
+irm https://atomgit.com/openairymax/agentrt/releases/download/latest/install.ps1 | iex
 ```
 
 完整的平台支持矩阵、源码构建方式与许可说明见[运行时 README](agentrt/README_zh.md)。

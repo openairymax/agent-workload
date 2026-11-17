@@ -5,6 +5,7 @@
 # 管理仓必要文件（白名单）
 !.gitignore
 !.gitmodules
+!.mailmap
 !README.md
 !README_zh.md
 # 管理仓必要文档（社区/安全/Docker，须入库）
